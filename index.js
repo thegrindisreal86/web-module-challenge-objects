@@ -3,8 +3,14 @@
 /*When doing these tasks, we recommend using console.log to test the output of your code to make sure it works correctly.*/
 
 ///////////////Menu Items (MVP)///////////////////
-const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
-const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
+const latte = {
+name: "Cafe Latte", 
+price: 4, 
+category: "Drinks"};
+const breakfastBurrito = {
+name: "Breakfast Burrito", 
+price: 16, 
+category:"Breakfast"};
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1a: Make a function that builds objects🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Add to the function createMenuItems below so it will create objects following the same format found above for latte and breakfastBurrito (name, price, category).  
@@ -13,9 +19,20 @@ The function should:
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(iname, iprice, icategory){
+    
+    let menu = {
+    
+    name: iname,
+    price: iprice,
+    category: icategory
+    
+    }
+
+    return menu
+        
 }
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Test your createMenuItems function by doing the following:
@@ -26,6 +43,22 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
+function createMenu(iname, iprice, icategory){
+    
+  return {
+  
+  name: iname,
+  price: iprice,
+  category: icategory
+  
+  }
+
+  
+      
+}
+// console.log(createMenu("Burger", 7, "Dinner"))
+// console.log(createMenu("Taco", 5, "Dinner"))
+// console.log(createMenu("Spaghetti", 7, "Dinner"))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -41,12 +74,26 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
-export const burger = {
+  export const burger = {
   name: "Burger", 
   price: 18, 
-  category: "Lunch", 
-  /*Your code here*/
+  category: "Lunch",
+  discount: function (customer){
+
+
+    if (customer === "student" || customer === "teacher")
+    {
+      return this.price * .75;
+    }
+    else if (customer == "public")
+    {
+      return this.price * .10;
+      }
+  }
+
 }
+burger.discount("teacher")
+console.log(burger.discount("teacher"))
 
 
 
@@ -67,7 +114,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console
 */
 
-
+console.log(reviews[5].feedback)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -77,6 +124,16 @@ Using the reviews array above do the following:
 */
 
 
+let review = [
+
+  {name: "Reyna", rating: 3.5, feedback: "great"},
+   
+]
+console.log(review)
+
+
+
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following:
@@ -84,7 +141,8 @@ Reyna's feedback is missing! Use what you know to do the following:
   2. log the reviews array to the console to check your work
 */
 
-
+review.push({name: "Jim", rating: 3, feedback: "not great"});
+console.log(review);
 
 
 
@@ -98,10 +156,17 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
-}
+function getReviewByIndex(reviews, index) {
 
+
+
+  index = 0;
+
+    return `${reviews[index].name} gave the restaurant a ${reviews[index].rating} star review, and their feedback was: ${reviews[index].feedback}`
+
+  
+}
+// console.log(getReviewByIndex(reviews))
 
   
 
@@ -116,8 +181,12 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(reviews) {
+
+
+  return `${reviews[7].name} gave the restaurant a ${reviews[7].rating} star review, and their feedback was: ${reviews[7].feedback}`
+
+
 } 
 
 
